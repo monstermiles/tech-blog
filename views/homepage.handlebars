@@ -1,0 +1,24 @@
+
+<div class='row m justify-space-around'>
+  <h1 class='welcome-to-page mb-5'>Look at this fine tech blog.!</h1>
+</div>
+
+<div class='row mb-3 justify-space-around each-post'>
+  {{#each posts as |post| }}
+  <div class="col-md-5 my-5 post-card">
+    <div class="row">
+      <div class="game-post text-center">
+        <a href="/post/{{post.id}}">
+          <h2 class='user-posted'>{{post.user.username}}</h2>
+        </a>
+        <a href="/post/{{post.id}}">
+        </a>
+        <h6 class='user-post'>
+          {{post.post_body}}
+        </h6>
+        <p class='user-tag'>posted on {{format_date post.date_created}}</p>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>

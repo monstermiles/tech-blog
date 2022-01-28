@@ -1,0 +1,50 @@
+<head>
+  <meta charset="UTF-8">
+  <title>Tech Blog</title>
+  {{!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> --}}
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Serif:ital,wght@1,700&family=Poppins:wght@500;600&display=swap"
+    rel="stylesheet">
+  <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-a11y="true"></script>
+  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="flex-column justify-space-around">
+    <header class="row display-flex justify-space-between align-center mb-5 p-2">
+      <div class='header-one'>
+        <a href='/'>
+          <h1 class='home-icon ml-5'>
+            Tech Blog
+          </h1>
+        </a>
+        <a href='/menu'>
+        </a>
+      </div>
+      <div class='header-2-nav'>
+        <nav>
+          {{#if logged_in}}
+          <a class='profile-btn nav-btn mx-1' href='/profile'>PROFILE</a>
+          <button class='no-button nav-btn mx-1' id='logout'>LOGOUT</button>
+          {{else}}
+          <a class='login-btn nav-btn mx-2' id='login-btn' href="/login">LOGIN</a>
+          {{/if}}
+        </nav>
+      </div>
+    </header>
+    <main class="container container-fluid mt-5">
+      {{{ body }}}
+    </main>
+  </div>
+
+  {{#if logged_in}}
+  <script src='/js/logout.js'></script>
+  {{/if}}..
+
+</body>
