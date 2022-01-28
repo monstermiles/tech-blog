@@ -1,0 +1,31 @@
+<div class="row mb-5">
+    <div class="col-auto mt-5">
+        <h2 class='profile-header'>{{username}}'s Posts</h2>
+    </div>
+</div>
+
+<div class='col-md-12 user-posts'>
+    {{#if posts.length}}
+    {{#each posts as |post| }}
+    <div class='col-md-3 px-2 user-post-game'>
+        <div class="text-center">
+            <a href="/post/{{post.id}}"></a>
+            <h6 class='user-post'>
+                {{post.post_body}}
+            </h6>
+            <p class='user-tag'>{{format_date post.date_created}}</p>
+        </div>
+        <div class='mt-3 delete-btn'>
+            <button class="btn btn-sm btn-danger delete-post">DELETE</button>
+        </div>
+    </div>
+    {{/each}}
+    
+    {{else}}
+        <h3>Make a post to see it on your profile.</h3>
+    {{/if}}
+</div>
+
+
+
+<script src='/js/post.js'></script>
