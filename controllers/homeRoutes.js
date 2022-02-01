@@ -1,32 +1,34 @@
 const router = require('express').Router();
-const { Post, User, Comment } = require('../models');
-// const isAuth = require('../utils/auth');
+// const { Post, User, Comment } = require('../models');
+// // const isAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
-    try {
-        const postData = await Post.findAll({
-            include: [
-                {
-                    model: User,
-                    attributes: ['username'],
-                },
-            ],
-            order: [
-                ['date_created', 'DESC'],
-            ],
-        });
+// router.get('/', async (req, res) => {
+//     try {
+//         const postData = await Post.findAll({
+//             include: [
+//                 {
+//                     model: User,
+//                     attributes: ['username'],
+//                 },
+//             ],
+//             order: [
+//                 ['date_created', 'DESC'],
+//             ],
+//         });
 
-        const posts = postData.map((post) => post.get({ plain: true }))
-        // console.log(posts)
-        res.render('homepage', {
-            posts,
-            logged_in: req.session.logged_in
+//         const posts = postData.map((post) => post.get({ plain: true }))
+//         // console.log(posts)
+//         res.render('homepage', {
+//             posts,
+//             logged_in: req.session.logged_in
 
-        })
-        console.log(posts)
-    } catch (err) {
-        res.status(500).json(err)
-    }
-});
+//         })
+//         console.log(posts)
+//     } catch (err) {
+//         res.status(500).json(err)
+//     }
+// });
+
+app.get("/",(req,res) => res.send("Hello World !"));
 
 module.exports = router;
