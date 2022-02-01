@@ -28,15 +28,22 @@ Comment.init(
                 key: 'id',
             },
         },
+
         comment_body: {
             type: DataTypes.STRING,
             allowNull: false,
         },
+
         date_created: {
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: DataTypes.NOW,
           },
+          
+        // date_created: {
+        //     type: timestamps,
+        //     allowNull: false,
+        //   },
     },
     {
         sequelize,
