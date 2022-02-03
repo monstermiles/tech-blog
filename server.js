@@ -1,34 +1,49 @@
+//requiring express, telling it where to find routes
 const express = require('express');
-const exphbs = require('express-handlebars');
+const routes = require('./controllers');
+
+//require path
 const path = require('path')
 
+//require handlebars
+const exphbs = require('express-handlebars');
+
+//require helpers 
+const helpers = require('./utils/helpers');
+
+//require sequelize 
+const sequelize = require('./config/connection');
 
 
+//set up express app and port
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 
-app.set('view engine', 'handlebars');
-app.use(express.static(path.join(__dirname, 'public')));
-
-// app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(require("./controllers"));
+// app.use(require("./controllers"));
 
 
-app.listen(PORT, () => console.log('Now listening'));
 
-const routes = require('./controllers');
-
-const helpers = require('./utils/helpers');
+//set up handlebars 
 const hbs = exphbs.create({ helpers })
-
+app.set('view engine', 'handlebars');
 app.engine('handlebars', hbs.engine)
 
+// //body parsing
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-const sequelize = require('./config/connection');
+//allows express to serve static files
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(routes)
+
+
 sequelize.sync({ force: false }).then(() => {  
+    app.listen(PORT, () => console.log('Now listening'));
 });
+
+
 // const session = require('express-session');
 
 // const axios = require('axios');
