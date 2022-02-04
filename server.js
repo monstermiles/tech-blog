@@ -23,6 +23,23 @@ const PORT = process.env.PORT || 3001;
 // app.use(require("./controllers"));
 
 
+//require session
+const session = require('express-session');
+//set up sequelize with session store 
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+app.use(
+    session({
+        secret: "Super secret secret",
+        cookie: {},
+        resave: false,
+        saveUninitialized: true,
+        store: new SequelizeStore({
+            db: sequelize,
+        })
+}));
+
+
 
 //set up handlebars 
 const hbs = exphbs.create({ helpers })
@@ -44,16 +61,6 @@ sequelize.sync({ force: false }).then(() => {
 });
 
 
-// const session = require('express-session');
-
-// const axios = require('axios');
-//const cors = require('cors');
-// const SequelizeStore = require('connect-session-sequelize')(session.Store);
-// app.use(
-//   cors({
-//     origin: "*",
-//   })
-// )
 
 
 
@@ -69,3 +76,17 @@ sequelize.sync({ force: false }).then(() => {
 // };
 
 // app.use(session(sess));
+
+
+// const axios = require('axios');
+//const cors = require('cors');
+
+// app.use(
+//   cors({
+//     origin: "*",
+//   })
+// )
+
+
+
+

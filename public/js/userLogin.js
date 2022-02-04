@@ -7,13 +7,13 @@ const userLogin = async (event) => {
     const passwordInput = document.querySelector('#password').value.trim()
     
     if (usernameInput && passwordInput) {
-        console.log("username and password input-----" + usernameInput + passwordInput)
+        // console.log("username and password input-----" + usernameInput + passwordInput)
         const response = await fetch('/api/users/login', {
             method: 'POST',
             body: JSON.stringify({usernameInput, passwordInput}),
             headers: { 'Content-Type': 'application/json' },
         });
-        console.log("response body------" + response.body)
+        // console.log("response body------" + response.body)
         if (response.ok) {
            console.log('Login successful.') 
         // document.location.replace('/profile')
