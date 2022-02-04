@@ -63,21 +63,6 @@ sequelize.sync({ force: false }).then(() => {
 
 
 
-
-
-// const sess = {
-//   secret: 'Super secret secret',
-//   cookie: {},
-//   resave: false,
-//   saveUninitialized: true,
-//   store: new SequelizeStore({
-//     db: sequelize
-//   })
-// };
-
-// app.use(session(sess));
-
-
 // const axios = require('axios');
 //const cors = require('cors');
 
