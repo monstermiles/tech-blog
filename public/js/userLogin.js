@@ -10,7 +10,7 @@ const userLogin = async (event) => {
         console.log("username and password input-----" + usernameInput + passwordInput)
         const response = await fetch('/api/users/login', {
             method: 'POST',
-            body: JSON.stringify(usernameInput, passwordInput),
+            body: JSON.stringify({usernameInput, passwordInput}),
             headers: { 'Content-Type': 'application/json' },
         });
         console.log("response body------" + response.body)
