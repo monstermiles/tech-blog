@@ -99,3 +99,14 @@ h2 {
 
 /* individual post */
 
+.indv-post-body {
+    border: 1px solid white;
+    margin-top: 5px;
+    margin-bottom:15px;
+    min-height: 150px;
+}
+
+
+.col-8 {
+    background-color: aqua;
+}
