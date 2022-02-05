@@ -1,7 +1,8 @@
 <div class='row display-flex justify-center text-center'>
   <div class='dish col-md-5 mb-5'>
     <h4 class='post-username'>{{user.username}}</h4>
-    <h6 class = 'post-date'>{{format_date comment.date_created}}</h6>
+    <h6 class = 'post-date'>{{post.date_created}}</h6>
+    {{!-- <h6 class = 'post-date'>{{format_date post.date_created}}</h6> --}}
     
     <div class='col-md-7 ind-user-post mb-5'></div>
     <p class='ind-review mt-5 '>
@@ -41,4 +42,4 @@
 
 
 </div>
-<script src='../js/comment.js'></script>
+{{!-- <script src='../js/comment.js'></script> --}}

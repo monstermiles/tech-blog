@@ -12,22 +12,22 @@
 
 
 <div>
-  <h2 id = 'sub-title '>Look at this fine tech blog.</h2>
+  <h2 id='sub-title '>Look at this fine tech blog.</h2>
 </div>
 
 
 
 
-<div class = 'container-fluid homepage-posts'>
-  <div class = 'row post-row'>
+<div class='container-fluid homepage-posts'>
+  <div class='row post-row'>
     {{#each posts as |post| }}
     <div class="post-card">
       <div>
         <div>
           <a href="/post/{{post.id}}">
-            <div class = 'post-header'>
-            <h3 class='post-username'>{{post.user.username}}</h3>
-            <h6 class='post-date'>posted on {{format_date post.date_created}}</h6>
+            <div class='post-header'>
+              <h3 class='post-username'>{{post.user.username}}</h3>
+              <h6 class='post-date'>posted on {{format_date post.date_created}}</h6>
             </div>
           </a>
           <a href="/post/{{post.id}}">
@@ -35,10 +35,12 @@
           <p class='post-body'>
             {{post.post_body}}
           </p>
-          
+
         </div>
       </div>
     </div>
     {{/each}}
   </div>
 </div>
+
+<script src='../public/js/user.js'></script>

@@ -26,6 +26,8 @@
 }
 
 
+
+
 /* login page */
 .container.login-and-create-user{
     display: flex;
@@ -92,3 +94,8 @@ h2 {
     margin-top: 5px;
     min-height: 70px;
 }
+
+
+
+/* individual post */
+

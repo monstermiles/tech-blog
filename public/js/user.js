@@ -2,20 +2,22 @@
 const addNewUser = async (event) => {
     event.preventDefault();
 
+    //grab user input
     const username = document.querySelector('#create-username').value.trim();
     const email = document.querySelector('#create-email').value.trim();
     const password = document.querySelector('#create-password').value.trim();
     const confirmPassword = document.querySelector('#confirm-password').value.trim();
 
-    console.log('--------------' + username, email, password, confirmPassword)
-
+    //if all fields are entered...
     if (username && email && password && confirmPassword) {
+        //if passwords match
         if (password === confirmPassword) {
             const response = await fetch('/api/users', {
                 method: 'POST',
                 body: JSON.stringify({ username, email, password }),
                 headers: { 'Content-Type': 'application/json' },
             })
+            //if user is successfullly created, go to homepage
             if (response.ok) {
                 document.location.replace('/')
             } else {
@@ -65,3 +67,19 @@ const userLogin = async (event) => {
 document.querySelector('.user-login').addEventListener('submit', userLogin)
 /////////////////////////////////////////////////////////////////////////////////////
 
+///////////////////////////////logout//////////////////////////////////////////////////////
+const logOut = async () => {
+    const response = await fetch('/api/users/logout', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+    });
+    if (response.ok) {
+        document.location.replace('/')
+    }else{
+        alert(response.status)
+    }
+};
+
+document.querySelector('#login').addEventListener('submit', logOut)
+
+/////////////////////////////////////////////////////////////////////////////////////

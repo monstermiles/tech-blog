@@ -1,4 +1,5 @@
 const router = require('express').Router();
+// const { TimeoutError, Error } = require('sequelize/dist');
 const { Post, User, Comment } = require('../models');
 // const isAuth = require('../utils/auth');
 
@@ -38,6 +39,44 @@ router.get('/', async (req, res) => {
         res.status(500).json(err)
     }
 });
+///////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////view a single post///////////////////////////////////////
+router.get('/post/:id', async (req, res) => {
+    try {
+        const singlePostData = await Post.findByPk(req.params.id, {
+            //inclue the username of the post's creator
+            include: [
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+                {
+                    model: Comment,
+                    include: {
+                        model: User,
+                        attributes: ['username']
+                    }
+                }
+            ]
+        })
+        console.log(singlePostData)
+        const singlePost = singlePostData.get({plain: true})
+        console.log(singlePost)
+
+        res.render('post', {
+            ... singlePost
+        })
+    
+    } catch (err) {
+        res.status(err)
+    }
+})
+
+
+
+
 ///////////////////////////////////////////////////////////////////////////
 
 
