@@ -1,18 +1,17 @@
-
-<div class='row m justify-space-around'>
-  <h1 class='mb-5'>Look at this fine tech blog.</h1>
+{{!-- <div class='row m justify-space-around'>
+  <h2 class='mb-5'>Look at this fine tech blog.</h2>
 </div>
 
- <div class='header-2-nav'>
-        <nav>
-          {{#if logged_in}}
-          <a class='profile-btn nav-btn mx-1' href='/profile'>PROFILE</a>
-          <button class='no-button nav-btn mx-1' id='logout'>LOGOUT</button>
-          {{else}}
-          <a class='login-btn nav-btn mx-2' id='login-btn' href="/login">LOGIN</a>
-          {{/if}}
-        </nav>
-      </div>
+<div class='header-2-nav'>
+  <nav>
+    {{#if logged_in}}
+    <a class='profile-btn nav-btn mx-1' href='/profile'>PROFILE</a>
+    <button class='no-button nav-btn mx-1' id='logout'>LOGOUT</button>
+    {{else}}
+    <a class='login-btn nav-btn mx-2' id='login-btn' href="/login">LOGIN</a>
+    {{/if}}
+  </nav>
+</div>
 
 
 
@@ -34,4 +33,48 @@
     </div>
   </div>
   {{/each}}
+</div> --}}
+
+
+
+
+<div>
+  <h2 id = 'sub-title '>Look at this fine tech blog.</h2>
+</div>
+
+{{!-- <div class='header-2-nav'>
+  <nav>
+    {{#if logged_in}}
+    <a class='profile-btn nav-btn mx-1' href='/profile'>PROFILE</a>
+    <button class='no-button nav-btn mx-1' id='logout'>LOGOUT</button>
+    {{else}}
+    <a class='login-btn nav-btn mx-2' id='login-btn' href="/login">LOGIN</a>
+    {{/if}}
+  </nav>
+</div> --}}
+
+
+<div class = 'container-fluid homepage-posts'>
+  <div class = 'row post-row'>
+    {{#each posts as |post| }}
+    <div class="col-10 post-card">
+      <div>
+        <div>
+          <a href="/post/{{post.id}}">
+            <div class = 'post-header'>
+            <h3 class='post-username'>{{post.user.username}}</h3>
+            <h6 class='post-date'>posted on {{format_date post.date_created}}</h6>
+            </div>
+          </a>
+          <a href="/post/{{post.id}}">
+          </a>
+          <p class='post-body'>
+            {{post.post_body}}
+          </p>
+          
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
 </div>

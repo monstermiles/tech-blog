@@ -10,14 +10,14 @@
     background-color: purple;
 }
 
-.header-one {
+/* .header-one {
     border: 3px solid white;
-}
+} */
 
-.container {
+/* .container {
     display: flex;
     justify-content: center;
-}
+} */
 
 
 .home-icon {
@@ -27,6 +27,11 @@
 
 
 /* login page */
+.container.login-and-create-user{
+    display: flex;
+    justify-content: center;
+}
+
 
 .login-user-title {
     margin-top: 40px;
@@ -36,4 +41,46 @@
 .create-user-title {
     margin-top: 60px;
     margin-bottom: 5px;
+}
+
+
+
+/* home page */
+
+h2 {
+    text-align: center;
+}
+
+.container.homepage-posts {
+    display: flex;
+    text-align: left;
+}
+
+.post-card {
+    text-align: left;
+    margin-bottom: 20px;
+    flex-grow:calc(80)
+}
+
+.post-header {
+    /* text-decoration: underline; */
+    text-decoration: underline purple;
+}
+
+.post-username {
+    display: inline;
+    /* float: left;*/
+    
+}
+
+.post-date {
+    display: inline;
+    /* float: right; */
+    margin-left: 15px;
+}
+
+.post-body {
+    border: 1px solid white;
+    margin-top: 5px;
+    min-height: 70px;
 }
