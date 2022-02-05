@@ -1,45 +1,50 @@
-<div class='row justify-space-around'>
-    <div class='col mb-2 lg-6 login-user-card'>
-        <h1 class='login-user-title'>LOGIN</h1>
+<div class = 'container'>
+    {{!-- <div class='row justify-space-around'> --}}
+    <div class='row'>
+        {{!-- <div class='col mb-2 lg-6 login-user-card'> --}}
+        <div class='login-user-card'>
+            <h2 class='login-user-title'>LOGIN</h2>
+            <form class='form user-login'>
+                <div class='form-group'>
+                    <label for='login-username'>Username:</label>
+                    <input class='form-input' type='username' id='username'>
+                </div>
+                <div class='form-group'>
+                    <label for='login-password'>Password:</label>
+                    <input class='form-input' type='password' id='password'>
+                </div>
+                <div class='form-group'>
+                    <button type="submit" class="btn primary">LOGIN USER</button>
+                </div>
+            </form>
+        </div>
 
-        <form class='form user-login'>
-            <div class='form-group'>
-                <label for='login-username'>Username:</label>
-                <input class='form-input' type='username' id='username'>
-            </div>
-            <div class='form-group'>
-                <label for='login-password'>Password:</label>
-                <input class='form-input' type='password' id='password'>
-            </div>
-            <div class='form-group'>
-                <button type="submit" class="btn primary">LOGIN USER</button>
-            </div>
-        </form>
-    </div>
-    <div class='col mb-2 lg-6 create-user-card'>
-        <h1 class='create-user-title'>CREATE NEW USER</h1>
+        {{!-- <div class='col mb-2 lg-6 create-user-card'> --}}
+        <div>
+            <h2 class='create-user-title'>CREATE NEW USER</h2>
 
-        <form class='form create-user'>
-            <div class='form-group'>
-                <label for='create-username'>Username:</label>
-                <input class='form-input' type='text' id='create-username'>
-            </div>
-            <div class='form-group'>
-                <label for='create-email'>Email:</label>
-                <input class='form-input' type='email' id='create-email'>
-            </div>
-            <div class='form-group'>
-                <label for='create-password'>Password:</label>
-                <input class='form-input' type='password' id='create-password'>
-            </div>
-            <div class='form-group'>
-                <label for='confirm-password'>Confirm Password:</label>
-                <input class='form-input' type='password' id='confirm-password'>
-            </div>
-            <div class='form-group'>
-                <button type="submit" class="btn success">CREATE NEW USER</button>
-            </div>
-        </form>
+            <form class='form create-user'>
+                <div class='form-group'>
+                    <label for='create-username'>Username:</label>
+                    <input class='form-input' type='text' id='create-username'>
+                </div>
+                <div class='form-group'>
+                    <label for='create-email'>Email:</label>
+                    <input class='form-input' type='email' id='create-email'>
+                </div>
+                <div class='form-group'>
+                    <label for='create-password'>Password:</label>
+                    <input class='form-input' type='password' id='create-password'>
+                </div>
+                <div class='form-group'>
+                    <label for='confirm-password'>Confirm Password:</label>
+                    <input class='form-input' type='password' id='confirm-password'>
+                </div>
+                <div class='form-group'>
+                    <button type="submit" class="btn success">CREATE NEW USER</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
