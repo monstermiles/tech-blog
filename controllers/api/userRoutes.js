@@ -6,6 +6,7 @@ const { User } = require('../../models');
 //////////////////////////////// create a new user /////////////////////////////////////////////
 router.post('/', async (req, res) => {
     try {
+        console.log('this back half of the function is firing')
         const newUserData = await User.create(req.body);
         req.session.user_id = newUserData.id;
         req.session.logged_in = true;

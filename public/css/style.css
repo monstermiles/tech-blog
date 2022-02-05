@@ -47,6 +47,11 @@
 
 /* home page */
 
+.homepage-nav-bar {
+    border-bottom: solid 1px white;
+}
+
+
 h2 {
     text-align: center;
 }
@@ -56,10 +61,13 @@ h2 {
     text-align: left;
 }
 
+.post-row {
+    align-items: center;
+}
+
 .post-card {
     text-align: left;
     margin-bottom: 20px;
-    flex-grow:calc(80)
 }
 
 .post-header {

@@ -1,6 +1,7 @@
 const addNewUser = async (event) => {
     event.preventDefault();
 
+    console.log("this button is working")
     const username = document.querySelector('#create-username').value.trim();
     const email = document.querySelector('#create-email').value.trim();
     const password = document.querySelector('#create-password').value.trim();
@@ -28,4 +29,4 @@ const addNewUser = async (event) => {
 }
 
 
-document.querySelector('#create-user').addEventListener('submit', addNewUser)
+document.querySelector('.create-user').addEventListener('submit', addNewUser)

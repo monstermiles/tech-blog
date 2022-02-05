@@ -1,8 +1,4 @@
-{{!-- <div class='row m justify-space-around'>
-  <h2 class='mb-5'>Look at this fine tech blog.</h2>
-</div>
-
-<div class='header-2-nav'>
+<div class='homepage-nav-bar'>
   <nav>
     {{#if logged_in}}
     <a class='profile-btn nav-btn mx-1' href='/profile'>PROFILE</a>
@@ -12,29 +8,6 @@
     {{/if}}
   </nav>
 </div>
-
-
-
-<div class='row mb-3 justify-space-around each-post'>
-  {{#each posts as |post| }}
-  <div class="col-md-5 my-5 post-card">
-    <div class="row">
-      <div class="game-post text-center">
-        <a href="/post/{{post.id}}">
-          <h2 class='user-posted'>{{post.user.username}}</h2>
-        </a>
-        <a href="/post/{{post.id}}">
-        </a>
-        <h6 class='user-post'>
-          {{post.post_body}}
-        </h6>
-        <p class='user-tag'>posted on {{format_date post.date_created}}</p>
-      </div>
-    </div>
-  </div>
-  {{/each}}
-</div> --}}
-
 
 
 
@@ -42,22 +15,13 @@
   <h2 id = 'sub-title '>Look at this fine tech blog.</h2>
 </div>
 
-{{!-- <div class='header-2-nav'>
-  <nav>
-    {{#if logged_in}}
-    <a class='profile-btn nav-btn mx-1' href='/profile'>PROFILE</a>
-    <button class='no-button nav-btn mx-1' id='logout'>LOGOUT</button>
-    {{else}}
-    <a class='login-btn nav-btn mx-2' id='login-btn' href="/login">LOGIN</a>
-    {{/if}}
-  </nav>
-</div> --}}
+
 
 
 <div class = 'container-fluid homepage-posts'>
   <div class = 'row post-row'>
     {{#each posts as |post| }}
-    <div class="col-10 post-card">
+    <div class="post-card">
       <div>
         <div>
           <a href="/post/{{post.id}}">
