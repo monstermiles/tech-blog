@@ -54,11 +54,11 @@
 }
 
 
-h2 {
+#sub-title {
     text-align: center;
 }
 
-.container.homepage-posts {
+.homepage-posts {
     display: flex;
     text-align: left;
 }
@@ -123,4 +123,21 @@ h2 {
 
 #submit-button {
     margin-top: 3px;
+}
+
+
+
+
+
+/* new post page */
+
+
+.add-post-header {
+    margin-left: 2px;
+}
+
+#post-body{
+    width: 90%;
+    margin-bottom: 10px;
+    min-height: 80px
 }
