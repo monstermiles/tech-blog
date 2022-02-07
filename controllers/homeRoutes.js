@@ -4,11 +4,6 @@ const { Post, User, Comment } = require('../models');
 // const isAuth = require('../utils/auth');
 
 
-// router.get('/', (req, res) => {
-//     res.render('homepage')
-// });
-
-
 /////////////////////////renders all the posts on the homepage/////////////////////////
 router.get('/', async (req, res) => {
     try {
@@ -72,12 +67,35 @@ router.get('/post/:id', async (req, res) => {
     } catch (err) {
         res.status(err)
     }
-})
-
-
-
-
+});
 ///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////render profile page////////////////////////////////////
+router.get('/profile', async (req, res) => {
+    try {
+        const userPostData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password']},
+            include: [
+                {model: Post,}
+            ]
+        });
+
+        const posts = userPostData.get({plain: true})
+
+        res.render('profile', {
+            ...posts,
+            logged_in: true
+        })
+
+    } catch (err) {
+        res.json(err)
+    }
+});
+///////////////////////////////////////////////////////////////////////////
+
+
+
+
 
 
 
