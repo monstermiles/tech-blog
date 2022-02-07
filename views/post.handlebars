@@ -1,9 +1,11 @@
 <div class='container-fluid'>
   {{!-- <div class='row display-flex justify-center text-center'> --}}
     <div class='row'>
-      {{!-- <div class='dish col-md-5 mb-5'> --}}
+      <div class='post-header'>
         <h2 class='post-username'>{{user.username}}</h2>
         <h4 class='post-date'>{{post.date_created}}</h4>
+
+      </div>
         {{!-- <h6 class='post-date'>{{format_date post.date_created}}</h6> --}}
 
         <div class='indv-post-body'>
@@ -11,12 +13,11 @@
             {{post_body}}
           </p>
         </div>
-        {{!--
-      </div> --}}
+        
 
       {{!-- <div class='container'> --}}
-        <div class='row add-comment-container display-flex'>
-          <div class = 'col-8'>
+        {{!-- <div class='row add-comment-container display-flex'>
+          <div>
           <form class='form create-comment'>
             <div class='form-group'>
               <label for='comment-input'>Comment:</label>
@@ -28,9 +29,22 @@
             </div>
           </form>
           </div>
+        </div> --}}
+      
+      <div class='comment-section-container'>
+       
+        <div class='row comment-input-container display-flex'>
+          <form class='form create-comment'>
+              <label for='comment-input' class = 'form-label'>Comment:</label>
+              <br />
+              <textarea type='text' class='form-control' id='comment-input' rows='5' cols='80'></textarea>
+              <button type='submit' id='submit-button'>Comment</button>
+          </form>
         </div>
+        
+    
 
-        <div class='row display-flex justify-center'>
+        {{!-- <div class='row display-flex justify-center'>
           {{#if comments.length}}
           {{#each comments as |comment|}}
           <div class='col-md-8'>
@@ -40,6 +54,18 @@
             </div>
             <p class='comment-user-tag'>posted on {{format_date comment.date_created}}
           </div>
+          {{/each}}
+          {{/if}}
+        </div> --}}
+
+        <div class='row display-flex'>
+          {{#if comments.length}}
+          {{#each comments as |comment|}}
+            <h4 class='comment-username'>{{comment.user.username}}</h4>
+            <div class='ind-user-comment'>
+              <p>{{comment_body}}</p>
+            </div>
+            <p class='comment-user-tag'>posted on {{format_date comment.date_created}}
           {{/each}}
           {{/if}}
         </div>

@@ -99,6 +99,10 @@ h2 {
 
 /* individual post */
 
+.post-header {
+    text-align: left;
+}
+
 .indv-post-body {
     border: 1px solid white;
     margin-top: 5px;
@@ -106,7 +110,16 @@ h2 {
     min-height: 150px;
 }
 
+.create-comment {
+    width: 80%;
+    align-items: center;
+}
 
-.col-8 {
-    background-color: aqua;
+#comment-input {
+    background-color: black;
+    min-height: 30px;
+}
+
+#submit-button {
+    margin-top: 3px;
 }
