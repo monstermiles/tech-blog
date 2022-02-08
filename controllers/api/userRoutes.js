@@ -7,12 +7,15 @@ const { User } = require('../../models');
 router.post('/', async (req, res) => {
     try {
         const newUserData = await User.create(req.body);
-        req.session.user_id = newUserData.id;
-        req.session.logged_in = true;
-
-        res.status(200).json(newUserData)
+        
+        req.session.save(() => {
+            req.session.user_id = newUserData.id;
+            req.session.logged_in = true;
+            res.status(200).json(newUserData)
+        })
 
         console.log(newUserData);
+        
 
     } catch (err) {
         res.status(400).json(err)
@@ -47,9 +50,10 @@ router.post('/login', async (req, res) => {
         req.session.save(() => {
             req.session.user_id = existingUser.id;
             req.session.logged_in = true;
+            res.status(200).json({user: existingUser, message: "Login successful." })
         })
 
-        res.status(200).json({user: existingUser, message: "Login successful." })
+        
 
     } catch (err) {
         res.status(400).json({ message: "User wasn't found" })
@@ -64,7 +68,7 @@ router.post('/logout', (req, res) => {
     try {
         if (req.session.logged_in) {
             req.session.destroy(() => {
-                res.status(204).end();
+            res.sendStatus(204)
             })
         } else {
             res.status(404).end();

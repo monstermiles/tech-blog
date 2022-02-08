@@ -52,7 +52,7 @@ const userLogin = async (event) => {
         // console.log("response body------" + response.body)
         if (response.ok) {
            console.log('Login successful.') 
-           document.location.replace('/profile')
+           document.location.replace('/')
         }
         else {
             response.json({message: 'Username or password is incorrect.'}) 

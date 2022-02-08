@@ -61,7 +61,7 @@ router.get('/post/:id', async (req, res) => {
         console.log(singlePost)
 
         res.render('post', {
-            ... singlePost
+            ...singlePost
         })
     
     } catch (err) {
