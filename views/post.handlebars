@@ -15,13 +15,13 @@
       </div>
 
 
-      <div class='comment-section-container'>
+      <div class='add-comment-container'>
         <div class='row comment-input-container display-flex'>
           <form class='form create-comment'>
             <label for='comment-input' class='form-label'>Comment:</label>
             <br />
             <textarea type='text' class='form-control' id='comment-input' rows='5' cols='80'></textarea>
-            <button type='submit' id='submit-button'>Comment</button>
+            <button type='submit' id='submit-button'>Submit Comment</button>
           </form>
         </div>
 
@@ -29,16 +29,20 @@
         <div class='row display-flex'>
           {{#if comments.length}}
           {{#each comments as |comment|}}
-          <h4 class='comment-username'>{{comment.user.username}}</h4>
-          <div class='ind-user-comment'>
-            <p>{{comment_body}}</p>
+          <div class = 'comment-container'>
+            <div class='comment-header'>
+              <h4 class='comment-username'>{{comment.user.username}}</h4>
+              <p class='comment-date'>posted on {{format_date comment.date_created}}
+            </div>
+            <div class='comment-body'>
+              <p>{{comment_body}}</p>
+            </div>
           </div>
-          <p class='comment-user-tag'>posted on {{format_date comment.date_created}}
-            {{/each}}
-            {{/if}}
+          {{/each}}
+          {{/if}}
         </div>
       </div>
     </div>
 
-    {{!--
-    <script src='../js/comment.js'></script> --}}
+
+    <script src='/js/comment.js'></script>

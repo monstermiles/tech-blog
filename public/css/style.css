@@ -127,6 +127,7 @@
     align-items: center;
 }
 
+
 #comment-input {
     background-color: black;
     min-height: 30px;
@@ -135,6 +136,26 @@
 #submit-button {
     margin-top: 3px;
 }
+
+.comment-container {
+    display: flex;
+    display: block;
+}
+
+.comment-header { 
+    margin-bottom: 1px;
+}
+
+.comment-date {
+    margin-bottom: 1px;
+}
+
+.comment-body {
+    border: 1px solid white;
+    margin-top: 1px;
+    
+}
+
 
 
 
