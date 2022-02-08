@@ -1,9 +1,9 @@
 <div class='homepage-nav-bar'>
   <nav>
     {{#if logged_in}}
-    <a class='profile-btn nav-btn mx-1' href='/profile'>PROFILE</a>
-    <a class="create-post nav-btn mx-1" href='/createpost'>ADD A POST</a>
-    <button class='logout-btn nav-btn mx-1'>LOGOUT</button>
+    <a class='profile-btn' href='/profile'>PROFILE</a>
+    <a class="create-post" href='/createpost'>ADD A POST</a>
+    <button class='logout-btn'>LOGOUT</button>
     {{!-- <button class='no-button nav-btn mx-1' id='logout'>LOGOUT</button> --}}
     {{else}}
     <a class='login-btn nav-btn mx-2' id='login-btn' href="/login">LOGIN</a>
@@ -47,3 +47,4 @@
 {{#if logged_in }}
 <script src='/js/logout.js'></script>
 {{/if}}
+

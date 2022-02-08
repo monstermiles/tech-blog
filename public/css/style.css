@@ -53,6 +53,17 @@
     border-bottom: solid 1px white;
 }
 
+.profile-btn {
+ border: white 1px solid;
+ color: white;
+ text-decoration: none;  
+}
+
+.create-post {
+    border: white 1px solid;
+    color: white;
+    text-decoration: none;    
+}
 
 #sub-title {
     text-align: center;
