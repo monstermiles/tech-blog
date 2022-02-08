@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { response } = require('express');
 // const { TimeoutError, Error } = require('sequelize/dist');
 const { Post, User, Comment } = require('../models');
 // const isAuth = require('../utils/auth');
@@ -26,7 +27,6 @@ router.get('/', async (req, res) => {
         //render the homepage handlebars, with the posts. 
         res.render('homepage', {
             posts,
-            
             logged_in: req.session.logged_in
         })
         console.log(posts)
@@ -73,17 +73,16 @@ router.get('/post/:id', async (req, res) => {
 ///////////////////////////render profile page////////////////////////////////////
 router.get('/profile', async (req, res) => {
     try {
-        const userPostData = await User.findByPk(req.session.user_id, {
+        const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password']},
             include: [
                 {model: Post,}
             ]
         });
-
-        const posts = userPostData.get({plain: true})
+        const user = userData.get({plain: true})
 
         res.render('profile', {
-            ...posts,
+            ...user,
             logged_in: true
         })
 
@@ -97,6 +96,9 @@ router.get('/profile', async (req, res) => {
 
 router.get('/login', async (req, res) => {
     try {
+        // if (req.session.logged_in) {
+        //     res.redirect('/profile')
+        // }
     res.render('login')
     } catch (err) {
         res.json(err)
@@ -114,6 +116,7 @@ router.get('/createpost', async (req, res) => {
     }
 });
 ///////////////////////////////////////////////////////////////////////////
+
 
 
 

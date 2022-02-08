@@ -24,24 +24,23 @@ router.post('/', async (req, res) => {
 /////////////////////////login an existing user//////////////////////////////////////////
 router.post('/login', async (req, res) => {
     try {
-        // console.log("request body -------" + req.body)
         //look for a user with the given username
         const existingUser = await User.findOne(
             {
                 where: {
-                    username: req.body.usernameInput
+                    username: req.body.username
                 }
             }
         );
         if (!existingUser) {
-            res.status(400).json({ message: "User wasn't found - username " })
+            res.status(400).json({ message: "Username or password is incorrect." })
             return;
         }
         //use checkPassword function from User model to compare password
-        const existingPassword = existingUser.checkPassword(req.body.passwordInput);
+        const existingPassword = existingUser.checkPassword(req.body.password);
 
         if (!existingPassword) {
-            res.status(400).json({ message: "User wasn't found - password " })
+            res.status(400).json({ message: "Username or password is incorrect" })
             return;
         }
 
@@ -50,7 +49,7 @@ router.post('/login', async (req, res) => {
             req.session.logged_in = true;
         })
 
-        res.status(200).json({ message: "successful." })
+        res.status(200).json({user: existingUser, message: "Login successful." })
 
     } catch (err) {
         res.status(400).json({ message: "User wasn't found" })
@@ -63,23 +62,17 @@ router.post('/login', async (req, res) => {
 /////////////////////////////////// log out //////////////////////////////////////////
 router.post('/logout', (req, res) => {
     try {
-        // if (req.session.loggedIn) {
-        //     req.session.destroy(() => {
-        //         res.status(204).end();
-        //     })
-        // } else {
-        //     res.status(404).end();
-        // }
-        req.session.destroy(() => {
-            res.status(204).end();
-            console.log("logged out!")
-        })
-
+        if (req.session.logged_in) {
+            req.session.destroy(() => {
+                res.status(204).end();
+            })
+        } else {
+            res.status(404).end();
+        }
     } catch (err) {
         res.status(404).end();
     }
 })
-
 /////////////////////////////////////////////////////////////////////////////////////
 
 

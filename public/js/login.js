@@ -39,47 +39,29 @@ const userLogin = async (event) => {
     event.preventDefault();
 
     //grab the user input 
-    const usernameInput = document.querySelector('#username').value.trim()
-    const passwordInput = document.querySelector('#password').value.trim()
+    const username = document.querySelector('#username').value.trim()
+    const password = document.querySelector('#password').value.trim()
     
-    if (usernameInput && passwordInput) {
+    if (username && password) {
         // console.log("username and password input-----" + usernameInput + passwordInput)
         const response = await fetch('/api/users/login', {
             method: 'POST',
-            body: JSON.stringify({usernameInput, passwordInput}),
+            body: JSON.stringify({username, password}),
             headers: { 'Content-Type': 'application/json' },
         });
         // console.log("response body------" + response.body)
         if (response.ok) {
            console.log('Login successful.') 
-        // document.location.replace('/profile')
+           document.location.replace('/profile')
         }
         else {
-            response.status 
+            response.json({message: 'Username or password is incorrect.'}) 
         }
     } 
     else {
         alert("Username or password is incorrect.")
     }
 }
-
-
 document.querySelector('.user-login').addEventListener('submit', userLogin)
 /////////////////////////////////////////////////////////////////////////////////////
 
-///////////////////////////////logout//////////////////////////////////////////////////////
-const logOut = async () => {
-    const response = await fetch('/api/users/logout', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-    });
-    if (response.ok) {
-        document.location.replace('/')
-    }else{
-        alert(response.status)
-    }
-};
-
-document.querySelector('#login').addEventListener('submit', logOut)
-
-/////////////////////////////////////////////////////////////////////////////////////
