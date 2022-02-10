@@ -156,13 +156,19 @@
     margin-bottom: 1px;
 }
 
+.comment-username {
+    display:inline;
+}
+
 .comment-date {
     margin-bottom: 1px;
+    display: inline;
 }
 
 .comment-body {
     border: 1px solid white;
     margin-top: 1px;
+    margin-bottom: 10px;
     
 }
 
@@ -197,6 +203,12 @@
 
 .profile-create-post-btn {
     margin-bottom: 20px;
+    color: white;
+}
+
+.back-to-homepage-btn {
+    margin-bottom: 20px;
+    color:white;
 }
 
 .profile-post {
@@ -216,6 +228,14 @@
 }
 
 .delete-post-btn {
+    margin-top: 1px;
+    margin-bottom: 5px;
+    border: white 1px solid;
+    color: white;
+    text-decoration: none;  
+}
+
+.edit-post-btn {
     margin-top: 1px;
     margin-bottom: 5px;
     border: white 1px solid;

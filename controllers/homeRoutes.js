@@ -2,8 +2,7 @@ const router = require('express').Router();
 const { response } = require('express');
 // const { TimeoutError, Error } = require('sequelize/dist');
 const { Post, User, Comment } = require('../models');
-// const isAuth = require('../utils/auth');
-
+const isAuth = require('../utils/isAuth');
 
 /////////////////////////renders all the posts on the homepage/////////////////////////
 router.get('/', async (req, res) => {
@@ -38,7 +37,7 @@ router.get('/', async (req, res) => {
 
 
 //////////////////////////////view a single post///////////////////////////////////////
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id', isAuth, async (req, res) => {
     try {
         const singlePostData = await Post.findByPk(req.params.id, {
             //inclue the username of the post's creator
@@ -71,7 +70,7 @@ router.get('/post/:id', async (req, res) => {
 ///////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////render profile page////////////////////////////////////
-router.get('/profile', async (req, res) => {
+router.get('/profile', isAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password']},
@@ -96,9 +95,6 @@ router.get('/profile', async (req, res) => {
 
 router.get('/login', async (req, res) => {
     try {
-        // if (req.session.logged_in) {
-        //     res.redirect('/profile')
-        // }
     res.render('login')
     } catch (err) {
         res.json(err)
@@ -108,7 +104,7 @@ router.get('/login', async (req, res) => {
 ///////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////render create post page /////////////////////////////
-router.get('/createpost', async (req, res) => {
+router.get('/createpost', isAuth, async (req, res) => {
     try {
         res.render('createpost')
     } catch (err) {

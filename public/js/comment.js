@@ -16,7 +16,7 @@ const createComment = async (event) => {
             headers: {'Content-Type' : 'application/json'}
         })
         if (response.ok) {
-            console.log('comment posted')
+            document.location.reload();
         } else {
             alert(response.statusText)
         }

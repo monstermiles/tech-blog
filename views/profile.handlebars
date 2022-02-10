@@ -6,6 +6,7 @@
 
      <div>
         <a class="profile-create-post-btn btn" href='/createpost'>CREATE A POST</a>
+        <a class="back-to-homepage-btn btn" href="/">BACK TO HOMEPAGE</a>
     </div>
 
     <div class='profile-posts-container'>
@@ -19,6 +20,7 @@
             </h6>
             </a>
             <button class="btn btn-sm delete-post-btn" delete-id = '{{post.id}}'>DELETE</button>
+            <a class="btn btn-sm edit-post-btn" href = '/edit/{{post.id}}'>EDIT</a>
         </div>
         {{/each}}
 
@@ -31,3 +33,4 @@
 </div>
 
 <script src = '/js/deletePost.js'></script>
+{{!-- <script src = '/js/editPost.js'></script> --}}

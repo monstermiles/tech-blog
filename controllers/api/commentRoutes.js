@@ -1,10 +1,10 @@
-
 const router = require('express').Router();
 const { Comment } = require('../../models');
+const isAuth = require('../../utils/isAuth');
 
 
-
-router.post('/', async (req, res) => {
+/////////////////////////////create a comment//////////////////////////////////////////////
+router.post('/', isAuth, async (req, res) => {
     try {
         const newComment = await Comment.create({
             comment_body: req.body.comment_body,
@@ -17,6 +17,6 @@ router.post('/', async (req, res) => {
         res.json(err)
     }
 })
-
+///////////////////////////////////////////////////////////////////////////
 
 module.exports = router;

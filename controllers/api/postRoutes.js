@@ -1,6 +1,6 @@
 const { Post } = require('../../models');
-
 const router = require('express').Router();
+const isAuth = require('../../utils/isAuth');
 
 ///////////////////////////////////////create a post//////////////////////////////////////////
 router.post('/', async (req, res) => {
@@ -37,6 +37,38 @@ router.delete('/:id', async (req, res) => {
     }
 })
 /////////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////render edit page/////////////////////////////////////////////////
+router.get('/login', async (req, res) => {
+    try {
+    res.render('login')
+    } catch (err) {
+        res.json(err)
+    }
+});
+router.get('/edit')
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////edit a post////////////////////////////////////////////////////
+router.put('/edit/:id', isAuth, async (req, res) => {
+    try {
+        const postData = await Post.update(req.body, {
+            where: {
+                id: req.params.id,
+                user_id: req.session.user_id
+            }
+        })
+        console.log(req.body)
+        res.status(200).json(postData)
+    } catch (err) {
+        res.json(err)
+    }
+})
+/////////////////////////////////////////////////////////////////////////////////////
+
 
 
 module.exports = router;
