@@ -12,14 +12,13 @@
         {{#if posts.length}}
         {{#each posts as |post| }}
         <div class="profile-post">
-            <a href="/post/{{post.id}}"></a>
-
             <p class='profile-post-date'>Posted on {{format_date post.date_created}}</p>
-
+            <a href="/post/{{post.id}}">
             <h6 class='profile-post-body'>
                 {{post.post_body}}
             </h6>
-            <button class="btn btn-sm delete-post-btn">DELETE</button>
+            </a>
+            <button class="btn btn-sm delete-post-btn" delete-id = '{{post.id}}'>DELETE</button>
         </div>
         {{/each}}
 
@@ -31,5 +30,4 @@
     </div>
 </div>
 
-
-<script src='/js/deletePost.js'></script>
+<script src = '/js/deletePost.js'></script>
