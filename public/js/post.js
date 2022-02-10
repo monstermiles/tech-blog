@@ -13,12 +13,12 @@ const createPost = async (event) => {
 
     response.json(response)
 
-    // if (response.ok) {
-    //     console.log('Post successfully created')
-    //     // document.location.replace('/profile')
-    // } else {
-    //     console.log('post not created')
-    // }
+    if (response.ok) {
+        console.log('Post successfully created')
+        document.location.replace('/profile')
+    } else {
+        response.status
+    }
 };
 
 

@@ -8,10 +8,9 @@ router.post('/', async (req, res) => {
     try {
         const newPost = await Post.create({
             ...req.body,
-            // user_id: req.session.user_id,
-            user_id:3
+            user_id: req.session.user_id,
+            
         });
-        console.log('new post______________' + newPost)
         res.json(newPost);
     } catch (err) {
         res.json(err)

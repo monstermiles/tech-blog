@@ -10,20 +10,18 @@
     background-color: purple;
 }
 
-/* .header-one {
-    border: 3px solid white;
-} */
-
-/* .container {
-    display: flex;
-    justify-content: center;
-} */
-
 
 .home-icon {
     text-align: center;
     text-decoration: underline purple;
 }
+
+
+.page-container {
+    min-height: 100%;
+}
+
+
 
 
 
@@ -47,10 +45,14 @@
 
 
 
+
+
+
 /* home page */
 
 .homepage-nav-bar {
     border-bottom: solid 1px white;
+    margin-bottom: 15px;
 }
 
 .profile-btn {
@@ -59,7 +61,7 @@
  text-decoration: none;  
 }
 
-.create-post {
+.create-post-btn {
     border: white 1px solid;
     color: white;
     text-decoration: none;    
@@ -108,11 +110,13 @@
 
 
 
+
+
 /* individual post */
 
 .post-header {
     text-align: left;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .indv-post-body {
@@ -127,10 +131,9 @@
     align-items: center;
 }
 
-
 #comment-input {
     background-color: black;
-    min-height: 30px;
+    min-height: 20px;
 }
 
 #submit-button {
@@ -163,7 +166,6 @@
 
 /* new post page */
 
-
 .add-post-header {
     margin-left: 2px;
 }
@@ -173,3 +175,30 @@
     margin-bottom: 10px;
     min-height: 80px
 }
+
+
+
+
+/* profile page */
+
+.profile-header {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-decoration: underline purple;
+}
+
+.profile-post {
+    /* display: flex; */
+    text-align: left;    
+}
+
+.profile-post-date {
+    margin-bottom: 2px;
+    font-size: 12px;
+}
+
+.profile-post-body {
+    border: 1px white solid;
+    min-height: 60px;
+}
+
