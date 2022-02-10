@@ -4,7 +4,7 @@ const createComment = async (event) => {
     console.log('this function is firing')
 
     const comment_body = document.querySelector('#comment-input').value.trim();
-    const post_id = window.location.toString().split('/').at(-1)
+    const post_id = window.location.toString().split('/').at(-1);
 
     console.log(comment_body, post_id)
     if (!comment_body) {
@@ -15,13 +15,16 @@ const createComment = async (event) => {
             body: JSON.stringify({comment_body, post_id}),
             headers: {'Content-Type' : 'application/json'}
         })
-    }
-
-    if (response.ok) {
-        document.location.reload()
-    } else {
-        alert(response.statusText)
+        if (response.ok) {
+            console.log('comment posted')
+        } else {
+            alert(response.statusText)
+        }
     }
 }
 
-document.querySelector('#submit-button').addEventListener('submit', createComment)
+// function createComment() {
+//     console.log('this button works')
+// }
+
+document.querySelector('.submit-comment-btn').addEventListener('click', createComment)

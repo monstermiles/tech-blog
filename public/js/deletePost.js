@@ -23,9 +23,5 @@ const deletePost = async (event) => {
   
 }
 
-// function deletePost() {
-//     console.log('this button is working')
-// }
-
 document.querySelector('.delete-post-btn').addEventListener('click', deletePost)
 /////////////////////////////////////////////////////////////////////////////////////

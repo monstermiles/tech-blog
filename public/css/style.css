@@ -140,6 +140,7 @@
 #comment-input {
     background-color: black;
     min-height: 20px;
+    color: white;
 }
 
 #submit-button {
