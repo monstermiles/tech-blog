@@ -67,6 +67,12 @@
     text-decoration: none;    
 }
 
+.logout-btn {
+    border: white 1px solid;
+    color: white;
+    text-decoration: none;  
+}
+
 #sub-title {
     text-align: center;
 }
@@ -182,9 +188,14 @@
 /* profile page */
 
 .profile-header {
+    text-align: center;
     margin-bottom: 20px;
     margin-top: 20px;
     text-decoration: underline purple;
+}
+
+.profile-create-post-btn {
+    margin-bottom: 20px;
 }
 
 .profile-post {
@@ -200,5 +211,13 @@
 .profile-post-body {
     border: 1px white solid;
     min-height: 60px;
+    margin-bottom: 1px;
 }
 
+.delete-post-btn {
+    margin-top: 1px;
+    margin-bottom: 5px;
+    border: white 1px solid;
+    color: white;
+    text-decoration: none;  
+}

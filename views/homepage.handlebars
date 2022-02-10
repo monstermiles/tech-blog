@@ -1,11 +1,11 @@
 <div class='homepage-nav-bar'>
   <nav>
     {{#if logged_in}}
-    <a class='profile-btn' href='/profile'>PROFILE</a>
-    <a class="create-post-btn" href='/createpost'>CREATE A POST</a>
-    <button class='logout-btn'>LOGOUT</button>
+    <a class='profile-btn btn' href='/profile'>PROFILE</a>
+    <a class="create-post-btn btn" href='/createpost'>CREATE A POST</a>
+    <button class='logout-btn btn'>LOGOUT</button>
     {{else}}
-    <a class='login-btn nav-btn mx-2' id='login-btn' href="/login">LOGIN</a>
+    <a class='btn login-btn' id='login-btn' href="/login">LOGIN</a>
     {{/if}}
   </nav>
 </div>

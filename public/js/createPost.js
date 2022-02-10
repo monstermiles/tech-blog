@@ -21,6 +21,7 @@ const createPost = async (event) => {
     }
 };
 
-
 document.querySelector('.submit-post-btn').addEventListener('click', createPost)
 /////////////////////////////////////////////////////////////////////////////////////
+
+
