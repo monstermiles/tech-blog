@@ -7,18 +7,20 @@ const createPost = async (event) => {
 
     const response = await fetch('/api/posts', {
         method: 'POST',
-        body: post_body,
+        body: JSON.stringify(post_body),
         headers: { 'Content-Type': 'application/json' },
     });
 
-    if (response.ok) {
-        console.log('Post successfully created')
-        document.location.replace('/profile')
-    } else {
-        response.json(err)
-    }
+    response.json(response)
+
+    // if (response.ok) {
+    //     console.log('Post successfully created')
+    //     // document.location.replace('/profile')
+    // } else {
+    //     console.log('post not created')
+    // }
 };
 
 
-document.querySelector('.submit-post-btn').addEventListener('submit', createPost)
+document.querySelector('.submit-post-btn').addEventListener('click', createPost)
 /////////////////////////////////////////////////////////////////////////////////////

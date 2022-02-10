@@ -1,6 +1,6 @@
 //requiring express, telling it where to find routes
 const express = require('express');
-const routes = require('./controllers');
+
 
 //require path
 const path = require('path')
@@ -20,7 +20,6 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 
-// app.use(require("./controllers"));
 
 
 //require session
@@ -53,6 +52,7 @@ app.use(express.urlencoded({ extended: false }));
 //allows express to serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
+const routes = require('./controllers');
 app.use(routes)
 
 
@@ -61,16 +61,6 @@ sequelize.sync({ force: false }).then(() => {
 });
 
 
-
-
-// const axios = require('axios');
-//const cors = require('cors');
-
-// app.use(
-//   cors({
-//     origin: "*",
-//   })
-// )
 
 
 
